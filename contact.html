@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Sahayta Charity Trust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+  </style>
+</head>
+<body class="bg-[#FCFAEE] text-[#212121]">
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-content">
+    <!-- Heart SVG -->
+    <svg id="heart-svg" viewBox="0 0 100 100" class="heart-svg">
+      <path class="heart-outline" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="none"
+            stroke="#fca311"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path class="heart-fill" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="#fca311"
+            opacity="0"/>
+    </svg>
+
+    <!-- Loading Text -->
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<style>
+  /* Preloader container */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #FCFAEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 0.5s ease;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Heart SVG responsive */
+  .heart-svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .heart-svg {
+      width: 80px;
+      height: 80px;
+    }
+    .loading-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Outline animation */
+  .heart-outline {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawHeart 2s ease forwards;
+  }
+
+  /* Fill animation after outline */
+  .heart-fill {
+    animation: fillHeart 0.8s ease forwards;
+    animation-delay: 2s;
+  }
+
+  /* Heart pulse */
+  #heart-svg {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 2.8s;
+  }
+
+  /* Loading text */
+  .loading-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #fca311;
+    animation: typing 2s steps(10) infinite alternate;
+  }
+
+  /* Keyframes */
+  @keyframes drawHeart { to { stroke-dashoffset: 0; } }
+  @keyframes fillHeart { to { opacity: 1; } }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  @keyframes typing { from { opacity: 0.2; } to { opacity: 1; } }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.style.display = "none", 500);
+  });
+</script>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 shadow-md backdrop-blur bg-gradient-to-r from-[#fefcfb] to-[#fffaf0]">
+  <div class="w-full px-4 py-2 flex items-center justify-between">
+
+    <!-- Left: Logo + Brand -->
+    <div class="flex items-center gap-2">
+      <img src="logo1.jpg" alt="Sahayta Logo" class="h-14 w-auto rounded-xl" />
+      <span class="text-3xl font-bold text-[#0b3564] tracking-wide font-[cursive]">SAHAYTA</span>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-[#0b3564] focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav + Donate Button -->
+    <div class="hidden md:flex items-center gap-5">
+      <nav class="flex space-x-4 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+        <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+        <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+        <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+        <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+<a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+      </nav>
+
+      <!-- DONATE Button -->
+      <a href="donation.html"
+         class="relative inline-flex items-center justify-center px-5 py-1.5 font-bold text-[#0b3564] border-2 border-[#0b3564] rounded-full overflow-hidden group bg-white">
+        <span class="absolute inset-0 z-0 bg-gradient-to-r from-[#0b3564] via-[#FF7043] to-[#FF7043] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-80"></span>
+        <span class="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364 4.318 12.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+          DONATE
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+    <nav class="flex flex-col space-y-3 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+      <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+      <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+      <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+      <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+       <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+<!-- HERO SECTION -->
+<section class="relative w-full h-[500px] md:h-[600px] bg-cover bg-center flex items-center justify-center" style="background-image: url('contact.jpg');">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative z-10 text-center px-4">
+    <div style="display: flex; flex-direction: column;">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 font-[cursive] tracking-wider drop-shadow-lg">
+      Contact Us
+    </h1>
+    <p class="text-white flex items-center justify-center gap-2 text-base md:text-lg font-medium">
+      <a href="index.html" class="text-[#0b3564] hover:underline flex items-center gap-1 font-semibold">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+          <path d="M10 0L0 10h3v10h4V14h6v6h4V10h3L10 0z"/>
+        </svg>
+        Home
+      </a>
+      <span class="text-gray-300">›</span>
+      <span class="text-gray-200">Contact</span>
+    </p>
+     <div style="display: flex; align-items: center;justify-content: center; z-index: 10; ">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSenL684qQgBFpEBz7twGTLiDMrB9ANm2mNZRg8Vmw-KFgImPg/viewform?usp=sharing" 
+   target="_blank" 
+   class="bg-[#0b3564] text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-[#09294e] transition inline-block">
+  📨 Enquire Now
+</a></div>
+  </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+<!-- Main Section -->
+<section class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-1 gap-8 bg-[#f0f4f8]">
+  <!-- MAP AND CONTACT CARD -->
+  <div class="relative h-[550px] bg-white rounded-xl shadow-lg p-6">
+    <div class="absolute inset-6 rounded-xl overflow-hidden">
+      <iframe
+        src="https://maps.google.com/maps?q=Sahayta%20Trust%20Beg%20Mohd%20Building%2052%2F54%20Abubakar%20Street%20Dagdi%20Chowl%20Agripada%20Mumbai%20Maharashtra%20400011&output=embed"
+        class="w-full h-full border-0 rounded-xl "
+        allowfullscreen
+        loading="lazy"
+        style="width: 100%;"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div class="absolute bottom-8 left-8 bg-[#b7d5f7]/90 backdrop-blur-md p-6 rounded-xl w-80 shadow-lg">
+      <h4 class="font-bold text-[#0b3564] text-lg mb-2">📍 Sahayta Charity Trust</h4>
+      <p class="text-sm mb-2"><i class="fa fa-map-marker-alt text-[#FF7043] mr-1"></i> 52/54 Abubakar Street, Dagdi Chawl, Agripada, Mumbai</p>
+      <p class="text-sm mb-1"><i class="fa fa-phone text-[#FF7043] mr-1"></i> +91 99300 51150</p>
+      <p class="text-sm mb-2"><i class="fa fa-envelope text-[#FF7043] mr-1"></i> Sahaytacharitabletrust@gmail.com</p>
+      <div class="flex space-x-4 mt-2 text-[#0b3564] text-xl">
+        <a href="https://www.facebook.com/share/19pmp8DJW7/" target="_blank"><i class="fab fa-facebook hover:text-[#FF7043]"></i></a>
+        <a href="https://www.instagram.com/sahaytacharitabletrust" target="_blank"><i class="fab fa-instagram hover:text-[#FF7043]"></i></a>
+        <a href="https://youtube.com/@sahaytacharitabletrust" target="_blank"><i class="fab fa-youtube hover:text-[#FF7043]"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM 
+  <div class="bg-white rounded-xl shadow-lg p-8 h-[550px] flex flex-col justify-center">
+    <h4 class="text-[#0b3564] font-bold text-2xl mb-6">📨 Enquire Now</h4>
+    <form action="#" method="POST" class="space-y-5">
+      <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none text-base" required>
+      <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none text-base" required>
+      <textarea name="message" rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none text-base" required></textarea>
+      <button type="submit" class="bg-[#0b3564] text-white px-6 py-3 rounded-md text-base w-full font-semibold hover:bg-[#09294e] transition">Submit</button>
+    </form>
+  </div>-->
+</section> 
+
+
+<!-- FOOTER (Reusable) -->
+<footer class="bg-[#D7D7D7] pt-10 text-gray-800">
+  <div class="w-full max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left justify-items-center">
+
+    <!-- Column 1: Logo + About -->
+    <div class="space-y-4">
+      <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto md:mx-0">
+        <img src="logo1.jpg" alt="Sahayta Logo" class="w-full h-full object-cover">
+      </div>
+      <p class="text-sm max-w-xs leading-relaxed">
+        <span class="text-lg font-bold text-[#0B3564]">SAHAYTA</span> is a charitable trust dedicated to empowering lives through education, healthcare & community service.
+      </p>
+    </div>
+
+    <!-- Column 2: Contact Us -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold text-slate-900 font-[Segoe UI]">Contact Us</h4>
+      <ul class="space-y-2 text-sm text-slate-700">
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#FF7043]"></i>50 Abubaker Beg Mohd Street, Kolsa Mohalla,<br><center>Mumbai 400 003</center></li>
+        <li><i class="fas fa-phone mr-2 text-[#FF7043]"></i>+91 99300 51150</li>
+        <li><i class="fas fa-envelope mr-2 text-[#FF7043]"></i>Sahaytacharitabletrust@gmail.com</li>
+      </ul>
+      <!-- Contact Button -->
+      <a href="contact.html" class="inline-block mt-3 px-6 py-2 bg-[#0B3564] text-white text-sm rounded-full shadow-md hover:bg-[#FF7043] transition duration-300">
+        <i class="fas fa-paper-plane mr-1"></i> Get in Touch
+      </a>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div class="space-y-4">
+      <h4 class="text-xl font-semibold text-[#FF7043]">🌐 Follow Us</h4>
+      <div class="flex gap-4 justify-center md:justify-start">
+        <a href="https://www.instagram.com/sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#E1306C] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-instagram text-white text-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19pmp8DJW7/" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-facebook-f text-white text-lg"></i>
+        </a>
+        <a href="https://youtube.com/@sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-youtube text-white text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bg-[#0B3564] text-white text-center py-4 mt-10 text-sm">
+    © 2025 <span class="font-semibold text-[#FF7043]">SAHAYTA Charitable Trust</span>. All rights reserved.
+  </div>
+</footer>
+
+<!-- Required Font Awesome (Add in your <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+</body>
+</html>

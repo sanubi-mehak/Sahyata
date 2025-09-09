@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAHAYTA CHARITY TRUST</title>
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            black: {
+              DEFAULT: '#000000',
+              100: '#000000',
+              200: '#000000',
+              300: '#000000',
+              400: '#000000',
+              500: '#000000',
+              600: '#333333',
+              700: '#666666',
+              800: '#999999',
+              900: '#cccccc'
+            },
+            oxford_blue: {
+              DEFAULT: '#14213d',
+              100: '#04070c',
+              200: '#080d19',
+              300: '#0c1425',
+              400: '#101b31',
+              500: '#14213d',
+              600: '#29447e',
+              700: '#3e67bf',
+              800: '#7e99d5',
+              900: '#beccea'
+            },
+            orange_web: {
+              DEFAULT: '#fca311',
+              100: '#362101',
+              200: '#6b4201',
+              300: '#a16402',
+              400: '#d68502',
+              500: '#fca311',
+              600: '#fdb541',
+              700: '#fec871',
+              800: '#fedaa0',
+              900: '#ffedd0'
+            },
+            platinum: {
+              DEFAULT: '#e5e5e5',
+              100: '#2e2e2e',
+              200: '#5c5c5c',
+              300: '#8a8a8a',
+              400: '#b8b8b8',
+              500: '#e5e5e5',
+              600: '#ebebeb',
+              700: '#f0f0f0',
+              800: '#f5f5f5',
+              900: '#fafafa'
+            },
+            white: {
+              DEFAULT: '#ffffff',
+              100: '#333333',
+              200: '#666666',
+              300: '#999999',
+              400: '#cccccc',
+              500: '#ffffff',
+              600: '#ffffff',
+              700: '#ffffff',
+              800: '#ffffff',
+              900: '#ffffff'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  .custom-font {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out both;
+  }
+
+  .glow-button {
+    box-shadow: 0 0 0 0 rgba(255, 112, 67, 0.6);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 15px 4px rgba(255, 112, 67, 0.7);
+  }
+
+    body {
+      background-image: url('b1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .carousel-fade {
+      animation: fade 1s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+    .fill-btn {
+      position: relative;
+      overflow: hidden;
+      background-color: #e5e5e5;
+      color: #000000;
+      transition: color 0.4s ease-in-out;
+    }
+    .fill-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #fca311;
+      transition: left 0.4s ease-in-out;
+      z-index: 0;
+    }
+    .fill-btn:hover::before {
+      left: 0;
+    }
+    .fill-btn span {
+      position: relative;
+      z-index: 10;
+    }
+    .fill-btn:hover {
+      color: #ffffff;
+    }
+
+    .border-animation-left {
+      transition: transform 1s ease-in-out;
+    }
+    .group:hover .border-animation-left {
+      transform: scaleY(1);
+    }
+
+    .border-animation-right {
+      transition: transform 1s ease-in-out;
+    }
+    .group:hover .border-animation-right {
+      transform: scaleY(1);
+    }
+    .carousel-fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  img.carousel-fade,
+  h1.carousel-fade {
+    opacity: 1;
+  }
+
+  .font-\[cursive\] {
+    font-family: 'Dancing Script', cursive;
+  }
+
+
+  </style>
+</head>
+<!-- Google Font for Brand Name -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<body class="text-black font-sans">
+  <!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-content">
+    <svg id="heart-svg" viewBox="0 0 100 100" width="120" height="120">
+      <path class="heart-outline" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="none"
+            stroke="#fca311"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path class="heart-fill" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="#fca311"
+            opacity="0"/>
+    </svg>
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<style>
+  /* Preloader container */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #FCFAEE; /* Light cream background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Outline animation */
+  .heart-outline {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawHeart 2s ease forwards;
+  }
+
+  /* Fill animation after outline */
+  .heart-fill {
+    animation: fillHeart 0.8s ease forwards;
+    animation-delay: 2s;
+  }
+
+  /* Pulsing after fill */
+  #heart-svg {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 2.8s;
+  }
+
+  /* Loading text */
+  .loading-text {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fca311;
+    animation: typing 2s steps(10) infinite alternate;
+  }
+
+  /* Keyframes */
+  @keyframes drawHeart {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fillHeart {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Typewriter effect */
+  @keyframes typing {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+  }
+</style>
+
+<script>
+  // Remove preloader after page load
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500);
+  });
+</script><!-- HEADER -->
+<header class="sticky top-0 z-50 shadow-md backdrop-blur bg-gradient-to-r from-[#fefcfb] to-[#fffaf0]">
+  <div class="w-full px-4 py-2 flex items-center justify-between">
+
+    <!-- Left: Logo + Brand -->
+    <div class="flex items-center gap-2">
+      <img src="logo1.jpg" alt="Sahayta Logo" class="h-14 w-auto rounded-xl" />
+      <span class="text-3xl font-bold text-[#0b3564] tracking-wide font-[cursive]">SAHAYTA</span>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-[#0b3564] focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav + Donate Button -->
+    <div class="hidden md:flex items-center gap-5">
+      <nav class="flex space-x-4 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+        <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+        <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+        <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+        <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+        <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+      </nav>
+
+      <!-- DONATE Button -->
+      <a href="donation.html"
+         class="relative inline-flex items-center justify-center px-5 py-1.5 font-bold text-[#0b3564] border-2 border-[#0b3564] rounded-full overflow-hidden group bg-white">
+        <span class="absolute inset-0 z-0 bg-gradient-to-r from-[#0b3564] via-[#FF7043] to-[#FF7043] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-80"></span>
+        <span class="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364 4.318 12.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+          DONATE
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+    <nav class="flex flex-col space-y-3 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+      <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+      <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+      <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+      <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+       <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+<!-- HERO SECTION -->
+<section class="relative h-screen w-full overflow-hidden border-[10px] border-platinum-100 rounded-xl">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img id="heroImage" src="1.jpg" alt="Hero Background"
+         class="w-full h-full object-cover object-center transition-opacity duration-1000 carousel-fade" />
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  </div>
+
+  <!-- Overlay Border -->
+  <div class="absolute inset-0 z-10 border-4 border-white/30 rounded-xl pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 md:px-20">
+    <h1 id="heroQuote"
+        class="text-3xl md:text-5xl font-bold text-white max-w-3xl mb-6 animate-fade-in drop-shadow-lg">
+      "Empowering Communities, One Step at a Time"
+    </h1>
+
+    <!-- Buttons -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <!-- Explore More -->
+      <a href="about.html"
+         class="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-[#14532d] bg-white text-[#14532d] font-semibold overflow-hidden transition-all duration-300 group shadow-md">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-[#14532d] to-[#4ade80] opacity-80 transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
+        <span class="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-seedling"></i> Explore More
+        </span>
+      </a>
+
+      <!-- Donate -->
+      <a href="donation.html"
+         class="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-[#7f1d1d] bg-white text-[#7f1d1d] font-semibold overflow-hidden transition-all duration-300 group shadow-md">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-[#7f1d1d] to-[#fb923c] opacity-80 transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
+        <span class="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+          <i class="fas fa-hand-holding-heart"></i> Donate
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrow Buttons -->
+  <button id="prevBtn"
+          class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 text-white hover:bg-white/40 backdrop-blur-lg rounded-full p-3 transition-shadow shadow-md hover:shadow-xl">
+    <i class="fas fa-arrow-left text-xl"></i>
+  </button>
+  <button id="nextBtn"
+          class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 text-white hover:bg-white/40 backdrop-blur-lg rounded-full p-3 transition-shadow shadow-md hover:shadow-xl">
+    <i class="fas fa-arrow-right text-xl"></i>
+  </button>
+</section>
+
+<section class="px-6 md:px-20 py-20 text-[#14213d]">
+  <!-- Main Title -->
+  <h2 class="text-4xl font-bold text-center mb-16 text-[#fca311]">Mission & Vision</h2>
+
+  <!-- Mission Section -->
+  <div class="mb-20">
+    <div class="flex justify-center">
+      <h3 class="text-2xl font-semibold text-[#14213d] mb-4 border-b-2 border-[#fca311] px-6">
+        Our Mission
+      </h3>
+    </div>
+    <p class="text-center max-w-4xl mx-auto text-base mt-4 mb-10 leading-relaxed text-[#000000]">
+     <i>  "SAHAYTA </i>Charitable Trust is dedicated to uplifting the lives of the underprivileged through holistic support in education, healthcare, and humanitarian aid.
+We strive to create sustainable solutions that empower individuals to break free from the cycle of poverty, while fostering compassion, equality, and social responsibility in the community.
+Every initiative we take is guided by the belief that even the smallest act of kindness can spark lasting change in someone’s life."
+    </p>
+
+    <!-- Mission Images -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+      <div class="text-center" data-aos="fade-left" data-aos-delay="100">
+        <img src="m1.jpg" alt="Healthcare Support" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Healthcare Support</p>
+      </div>
+      <div class="text-center" data-aos="fade-left" data-aos-delay="300">
+        <img src="m2.jpeg" alt="Education for All" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Education for All</p>
+      </div>
+      <div class="text-center" data-aos="fade-left" data-aos-delay="500">
+        <img src="m3.jpeg" alt="Poverty Relief" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Poverty Relief</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision Section -->
+  <div>
+    <div class="flex justify-center">
+      <h3 class="text-2xl font-semibold text-[#14213d] mb-4 border-b-2 border-[#fca311] px-6">
+        Our Vision
+      </h3>
+    </div>
+    <p class="text-center max-w-4xl mx-auto text-base mt-4 mb-10 leading-relaxed text-[#000000]">
+      "We envision a future where every person, regardless of their background, has access to quality education, proper healthcare, and the resources needed to lead a life of dignity and opportunity.
+Our vision is to build a compassionate and inclusive society where humanity comes first — a world where people stand together to uplift one another, leaving no one behind in the journey towards progress and hope."
+    </p>
+
+    <!-- Vision Images -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+      <div class="text-center" data-aos="fade-left" data-aos-delay="100">
+        <img src="v1.jpeg" alt="Empowered Individuals" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Empowered Individuals</p>
+      </div>
+      <div class="text-center" data-aos="fade-left" data-aos-delay="300">
+        <img src="v2.png" alt="Inclusive Society" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Inclusive Society</p>
+      </div>
+      <div class="text-center" data-aos="fade-left" data-aos-delay="500">
+        <img src="v3.jpeg" alt="Bright Future" class="rounded-md border border-[#14213d] shadow-md w-full max-w-xs" />
+        <p class="mt-2 font-medium text-sm">Bright Future</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- VIDEO SECTION -->
+<section id="highlight" class="w-full overflow-hidden relative py-20 px-4 bg-[#f6f6f6]">
+  <h2 class="text-4xl font-extrabold text-center mb-10 text-[#fca311]">
+    🎥 Voices of Sahayta
+  </h2>
+
+  <div class="w-full max-w-5xl mx-auto" data-aos="zoom-in">
+    <video
+      id="highlightVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full object-contain rounded-xl border-4 border-[#14213d] shadow-2xl 
+             transition-transform duration-500 hover:scale-105 
+             ring-4 ring-[#fca311] ring-offset-2 ring-offset-white"
+    >
+      <source src="vi.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+<!-- IMPACT SECTION -->
+<section id="impact" class="py-16 bg-gradient-to-r from-[#b7d5f7] to-[#ECEFF1]">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0b3564] mb-6" data-aos="fade-down">
+      Impact In Last 5 Years
+    </h2>
+
+    <!-- Summary Row -->
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-10">
+      <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-4xl font-extrabold text-[#263238]">
+          ₹ <span class="count" data-count="11.0">0</span>Cr
+        </div>
+        <p class="text-[#444c56]">In Services</p>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-4xl font-extrabold text-[#263238]">
+          <span class="count" data-count="25.0">0</span>K
+        </div>
+        <p class="text-[#444c56]">Beneficiaries</p>
+      </div>
+    </div>
+
+    <!-- Impact Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Medical Aid -->
+      <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 text-center hover:shadow-[0_0_25px_#0b3564]" data-aos="fade-up" data-aos-delay="300">
+        
+        <div class="mb-3 flex justify-center">
+          <img src="ma.png" alt="Medical Aid" class="w-12 h-12">
+        </div>
+        <h3 class="text-lg font-bold text-[#263238] mb-1">Medical Aid</h3>
+        <p class="text-2xl font-extrabold text-[#0b3564]">
+          <span class="count" data-count="16.5">0</span>K+
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 text-center  hover:shadow-[0_0_25px_#FF7043] "data-aos="fade-up" data-aos-delay="400">
+        <div class="mb-3 flex justify-center">
+          <img src="ed.png" alt="Education" class="w-12 h-12">
+        </div>
+        <h3 class="text-lg font-bold text-[#263238] mb-1">Education</h3>
+        <p class="text-2xl font-extrabold text-[#FF7043]">
+          <span class="count" data-count="4.74">0</span>K+
+        </p>
+      </div>
+
+      <!-- Widow Help -->
+      <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 text-center hover:shadow-[0_0_25px_#fca311]" data-aos="fade-up" data-aos-delay="500">
+        <div class="mb-3 flex justify-center">
+          <img src="wd.png" alt="Widow Help" class="w-12 h-12">
+        </div>
+        <h3 class="text-lg font-bold text-[#263238] mb-1">Widow Help</h3>
+        <p class="text-2xl font-extrabold text-[#fca311]">
+          <span class="count" data-count="1.">0</span>K+
+        </p>
+      </div>
+
+      <!-- Poverty Relief -->
+      <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 text-center hover:shadow-[0_0_25px_#8e44ad]" data-aos="fade-up" data-aos-delay="600">
+        <div class="mb-3 flex justify-center">
+          <img src="pr.png" alt="Poverty Relief" class="w-12 h-12">
+        </div>
+        <h3 class="text-lg font-bold text-[#263238] mb-1">Relief for Poverty</h3>
+        <p class="text-2xl font-extrabold text-[#8e44ad]">
+          <span class="count" data-count="3">0</span>K+
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHT SECTION -->
+<section class="bg-[#0b3564] text-white py-16 px-6 md:px-10 custom-font">
+  <div class="max-w-4xl mx-auto text-center">
+
+    <!-- Icons Row -->
+    <div class="flex justify-center gap-8 mb-10 flex-wrap">
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-2 text-[#FF7043]">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <p class="text-lg font-semibold">Support</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-2 text-[#FF7043]">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <p class="text-lg font-semibold">Empower</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-5xl mb-2 text-[#FF7043]">
+          <i class="fas fa-people-carry"></i>
+        </div>
+        <p class="text-lg font-semibold">Uplift</p>
+      </div>
+    </div>
+
+    <!-- Animated Text -->
+    <div class="animate-fade-in-up duration-1000 delay-200">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Together, We Build Brighter Futures</h2>
+      <p class="text-lg text-[#b7d5f7] mb-8">
+        At Sahayta, we believe in creating lasting change through unity and compassion. Be a part of our journey.
+      </p>
+    </div>
+
+<a href="about.html"
+   class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 
+          bg-[#FF7043] text-white border-2 border-transparent hover:bg-white hover:text-[#FF7043] 
+          hover:border-[#FF7043] glow-button shadow-md">
+  <span>Know About Us</span>
+  <i class="fas fa-arrow-right"></i>
+</a>
+
+  </div>
+</section>
+
+
+<!-- FOOTER (Reusable) -->
+<footer class="bg-[#D7D7D7] pt-10 text-gray-800">
+  <div class="w-full max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left justify-items-center">
+
+    <!-- Column 1: Logo + About -->
+    <div class="space-y-4">
+      <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto md:mx-0">
+        <img src="logo1.jpg" alt="Sahayta Logo" class="w-full h-full object-cover">
+      </div>
+      <p class="text-sm max-w-xs leading-relaxed">
+        <span class="text-lg font-bold text-[#0B3564]">SAHAYTA</span> is a charitable trust dedicated to empowering lives through education, healthcare & community service.
+      </p>
+    </div>
+
+    <!-- Column 2: Contact Us -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold text-slate-900 font-[Segoe UI]">Contact Us</h4>
+      <ul class="space-y-2 text-sm text-slate-700">
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#FF7043]"></i>50 Abubaker Beg Mohd Street, Kolsa Mohalla, <br><center>Mumbai 400 003</center></li>
+        <li><i class="fas fa-phone mr-2 text-[#FF7043]"></i>+91 99300 51150</li>
+        <li><i class="fas fa-envelope mr-2 text-[#FF7043]"></i>Sahaytacharitabletrust@gmail.com</li>
+      </ul>
+      <!-- Contact Button -->
+      <a href="contact.html" class="inline-block mt-3 px-6 py-2 bg-[#0B3564] text-white text-sm rounded-full shadow-md hover:bg-[#FF7043] transition duration-300">
+        <i class="fas fa-paper-plane mr-1"></i> Get in Touch
+      </a>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div class="space-y-4">
+      <h4 class="text-xl font-semibold text-[#FF7043]">🌐 Follow Us</h4>
+      <div class="flex gap-4 justify-center md:justify-start">
+        <a href="https://www.instagram.com/sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#E1306C] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-instagram text-white text-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19pmp8DJW7/" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-facebook-f text-white text-lg"></i>
+        </a>
+        <a href="https://youtube.com/@sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-youtube text-white text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bg-[#0B3564] text-white text-center py-4 mt-10 text-sm">
+    © 2025 <span class="font-semibold text-[#FF7043]">SAHAYTA Charitable Trust</span>. All rights reserved.
+  </div>
+</footer>
+
+<!-- Required Font Awesome (Add in your <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn"
+  class="fixed bottom-6 right-6 bg-[#FF7043] hover:bg-[#0B3564] text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hidden">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+ <script>
+  // ✅ AOS initialization with mirror for scroll up/down
+  AOS.init({
+    duration: 1000,
+    once: false,
+    mirror: true,
+  });
+
+  const images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'];
+const quotes = [
+  '"Empowering Communities, One Step at a Time"',
+  '"Health is a Human Right, Not a Privilege"',
+  '"Together We Rise by Lifting Others"',
+  '"Educate. Empower. Elevate."',
+  '"Hope, Dignity, and Opportunity for All"',
+  '"Small Acts, Big Impact"',
+  '"Change Begins with Compassion"',
+];
+
+let current = 0;
+const heroImage = document.getElementById('heroImage');
+const heroQuote = document.getElementById('heroQuote');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function showSlide(index) {
+  current = (index + images.length) % images.length; // wrap-around
+  heroImage.classList.remove('carousel-fade');
+  heroQuote.classList.remove('carousel-fade');
+  setTimeout(() => {
+    heroImage.src = images[current];
+    heroQuote.textContent = quotes[current];
+    heroImage.classList.add('carousel-fade');
+    heroQuote.classList.add('carousel-fade');
+  }, 200);
+}
+
+// Auto-slide every 4s
+let autoSlide = setInterval(() => {
+  showSlide(current + 1);
+}, 4000);
+
+// Prev/Next buttons
+prevBtn.addEventListener('click', () => {
+  showSlide(current - 1);
+  resetAutoSlide();
+});
+
+nextBtn.addEventListener('click', () => {
+  showSlide(current + 1);
+  resetAutoSlide();
+});
+
+// Reset auto-slide timer when user clicks arrow
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(() => {
+    showSlide(current + 1);
+  }, 4000);
+}
+
+
+  // ✅ IMPACT SECTION COUNTER ANIMATION (runs on every scroll in/out)
+  const counters = document.querySelectorAll('.count');
+  const counterOptions = {
+    threshold: 0.6
+  };
+
+  let counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-count'));
+        let start = 0;
+        let suffix = '';
+
+        if (el.textContent.includes('K')) suffix = 'K';
+        if (el.textContent.includes('Cr')) suffix = 'Cr';
+
+        const duration = 1500;
+        const step = (timestampStart) => {
+          const now = performance.now();
+          const progress = Math.min((now - timestampStart) / duration, 1);
+          const value = (target * progress).toFixed(1);
+          el.textContent = value + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(() => step(timestampStart));
+          }
+        };
+
+        requestAnimationFrame((startTime) => step(startTime));
+      }
+    });
+  }, counterOptions);
+
+  counters.forEach(counter => counterObserver.observe(counter));
+
+  // ✅ VIDEO UNMUTE ON INTERACTION
+  const video = document.getElementById('highlightVideo');
+  const enableSound = () => {
+    if (video) {
+      video.muted = false;
+      video.play();
+      document.removeEventListener('click', enableSound);
+      document.removeEventListener('keydown', enableSound);
+    }
+  };
+  document.addEventListener('click', enableSound);
+  document.addEventListener('keydown', enableSound);
+  // ✅ Auto-pause video when out of view
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.target.id === "highlightVideo") {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+const highlightVideo = document.getElementById('highlightVideo');
+if (highlightVideo) {
+  observer.observe(highlightVideo);
+}
+const scrollBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.remove("hidden");
+    } else {
+      scrollBtn.classList.add("hidden");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+</script>
+</body></html>

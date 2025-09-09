@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Do - SAHAYTA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* Custom glow effect on hover */
+    .glow-hover:hover {
+      box-shadow: 0 0 25px #B8001F, 0 0 50px #B8001F66;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-content">
+    <!-- Heart SVG -->
+    <svg id="heart-svg" viewBox="0 0 100 100" class="heart-svg">
+      <path class="heart-outline" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="none"
+            stroke="#fca311"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path class="heart-fill" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="#fca311"
+            opacity="0"/>
+    </svg>
+
+    <!-- Loading Text -->
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<style>
+  /* Preloader container */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #FCFAEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 0.5s ease;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Heart SVG responsive */
+  .heart-svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .heart-svg {
+      width: 80px;
+      height: 80px;
+    }
+    .loading-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Outline animation */
+  .heart-outline {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawHeart 2s ease forwards;
+  }
+
+  /* Fill animation after outline */
+  .heart-fill {
+    animation: fillHeart 0.8s ease forwards;
+    animation-delay: 2s;
+  }
+
+  /* Heart pulse */
+  #heart-svg {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 2.8s;
+  }
+
+  /* Loading text */
+  .loading-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #fca311;
+    animation: typing 2s steps(10) infinite alternate;
+  }
+
+  /* Keyframes */
+  @keyframes drawHeart { to { stroke-dashoffset: 0; } }
+  @keyframes fillHeart { to { opacity: 1; } }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  @keyframes typing { from { opacity: 0.2; } to { opacity: 1; } }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.style.display = "none", 500);
+  });
+</script>
+
+<body class="bg-[#FCFAEE] text-[#212121]">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 shadow-md backdrop-blur bg-gradient-to-r from-[#fefcfb] to-[#fffaf0]">
+  <div class="w-full px-4 py-2 flex items-center justify-between">
+
+    <!-- Left: Logo + Brand -->
+    <div class="flex items-center gap-2">
+      <img src="logo1.jpg" alt="Sahayta Logo" class="h-14 w-auto rounded-xl" />
+      <span class="text-3xl font-bold text-[#0b3564] tracking-wide font-[cursive]">SAHAYTA</span>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-[#0b3564] focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav + Donate Button -->
+    <div class="hidden md:flex items-center gap-5">
+      <nav class="flex space-x-4 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+        <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+        <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+        <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+        <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+        <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+      </nav>
+
+      <!-- DONATE Button -->
+      <a href="donation.html"
+         class="relative inline-flex items-center justify-center px-5 py-1.5 font-bold text-[#0b3564] border-2 border-[#0b3564] rounded-full overflow-hidden group bg-white">
+        <span class="absolute inset-0 z-0 bg-gradient-to-r from-[#0b3564] via-[#FF7043] to-[#FF7043] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-80"></span>
+        <span class="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364 4.318 12.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+          DONATE
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+    <nav class="flex flex-col space-y-3 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+      <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+      <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+      <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+      <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+       <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+<!-- HERO SECTION -->
+<section class="relative h-[60vh] flex items-center justify-center overflow-hidden bg-center" 
+         style="background-image: url('w2'); background-size: cover; background-position: center;">
+  
+  <!-- Lighter Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/15 to-black/15"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-4" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg animate-textGlow">
+      What We Do
+    </h1>
+    <p class="max-w-xl mx-auto text-lg md:text-xl font-light tracking-wide">
+      Empowering lives through <span class="font-semibold text-[#fca311]">education</span>, 
+      <span class="font-semibold text-[#fca311]">healthcare</span>, and 
+      <span class="font-semibold text-[#fca311]">relief efforts</span>.
+    </p>
+  </div>
+</section>
+
+<!-- Extra Styling -->
+<style>
+  section[style*="background-image"] {
+    animation: zoomSlow 12s ease-in-out infinite;
+  }
+
+  @keyframes zoomSlow {
+    0% { background-size: 105%; }
+    50% { background-size: 110%; }
+    100% { background-size: 105%; }
+  }
+
+  @keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(252, 163, 17, 0.7), 0 0 20px rgba(252, 163, 17, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(252, 163, 17, 0.9), 0 0 40px rgba(252, 163, 17, 0.7); }
+  }
+  .animate-textGlow {
+    animation: textGlow 2.5s ease-in-out infinite;
+  }
+</style>
+
+
+<!-- WHAT WE DO SECTION -->
+<section class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 bg-[#fafafa] text-[#333333]">
+  <!-- Card 1 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-orange" data-aos="fade-up" data-aos-delay="100">
+    <div class="text-4xl mb-4 text-[#fca311]"><i class="fas fa-graduation-cap"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#fca311]">We Educate</h3>
+    <p>Providing financial support for education, helping children pursue their dreams without financial barriers.</p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-blue" data-aos="fade-up" data-aos-delay="200">
+    <div class="text-4xl mb-4 text-[#14213d]"><i class="fas fa-heartbeat"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#14213d]">We Care</h3>
+    <p>Funding critical medical treatments and ensuring healthcare access for those in need.</p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-black" data-aos="fade-up" data-aos-delay="300">
+    <div class="text-4xl mb-4 text-[#000000]"><i class="fas fa-female"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#000000]">We Support Women</h3>
+    <p>Helping widowed women become self-reliant with financial aid and skill development programs.</p>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-gray" data-aos="fade-up" data-aos-delay="400">
+    <div class="text-4xl mb-4 text-[#666666]"><i class="fas fa-hands-helping"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#666666]">We Uplift</h3>
+    <p>Supporting underprivileged communities and fostering growth and stability.</p>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-lightblue" data-aos="fade-up" data-aos-delay="500">
+    <div class="text-4xl mb-4 text-[#7e99d5]"><i class="fas fa-lightbulb"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#7e99d5]">We Strive</h3>
+    <p>Creating opportunities and empowering communities for a better future.</p>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="bg-white rounded-lg p-6 shadow-lg border border-[#e5e5e5] transform transition duration-700 glow-hover-deepblue" data-aos="fade-up" data-aos-delay="600">
+    <div class="text-4xl mb-4 text-[#29447e]"><i class="fas fa-hands"></i></div>
+    <h3 class="text-xl font-bold mb-2 text-[#29447e]">We Aid</h3>
+    <p>Providing financial aid to children and widowed women to rebuild lives with dignity.</p>
+  </div>
+</section>
+
+<!-- GLOW STYLES -->
+<style>
+  .glow-hover-orange:hover {
+    box-shadow: 0 0 12px rgba(252, 163, 17, 0.4), 0 0 6px rgba(252, 163, 17, 0.3);
+  }
+  .glow-hover-blue:hover {
+    box-shadow: 0 0 12px rgba(20, 33, 61, 0.4), 0 0 6px rgba(20, 33, 61, 0.3);
+  }
+  .glow-hover-black:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4), 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  .glow-hover-gray:hover {
+    box-shadow: 0 0 12px rgba(102, 102, 102, 0.4), 0 0 6px rgba(102, 102, 102, 0.2);
+  }
+  .glow-hover-lightblue:hover {
+    box-shadow: 0 0 12px rgba(126, 153, 213, 0.4), 0 0 6px rgba(126, 153, 213, 0.3);
+  }
+  .glow-hover-deepblue:hover {
+    box-shadow: 0 0 12px rgba(41, 68, 126, 0.4), 0 0 6px rgba(41, 68, 126, 0.3);
+  }
+</style>
+
+ <!-- IMPACT STATISTICS -->
+<section class="relative bg-[#FCFAEE] py-20 overflow-hidden">
+  <!-- Blob Background -->
+  <div class="absolute top-0 left-0 -z-10 opacity-20">
+    <svg viewBox="0 0 200 200" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#76c893" d="M41.6,-72.6C54.4,-62.9,65.5,-54.3,70.5,-42.4C75.5,-30.4,74.4,-15.2,72.6,-0.4C70.8,14.3,68.3,28.6,61.1,39.6C54,50.6,42.2,58.4,29.3,64.5C16.4,70.6,2.3,74.9,-12.8,78.6C-27.9,82.3,-44.1,85.3,-52.2,76.1C-60.4,66.9,-60.4,45.5,-66.4,28.1C-72.3,10.6,-84.2,-2.8,-82.2,-14.6C-80.2,-26.4,-64.3,-36.6,-50.8,-48.4C-37.4,-60.2,-26.4,-73.5,-12,-76.9C2.4,-80.3,27.8,-73.6,41.6,-72.6Z" transform="translate(100 100)" />
+    </svg>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-[#3E3E3E]" data-aos="fade-up">Our Impact</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#4e79a7] transition duration-300 hover:shadow-[0_0_20px_#4e79a7]" data-aos="fade-up">
+        <div class="text-5xl font-bold text-[#4e79a7]">600+</div>
+        <p class="mt-2 text-[#333]">Children Educated</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#f18f01] transition duration-300 hover:shadow-[0_0_20px_#f18f01]" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-5xl font-bold text-[#f18f01]">1500+</div>
+        <p class="mt-2 text-[#333]">Medical Treatments</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#9b5de5] transition duration-300 hover:shadow-[0_0_20px_#9b5de5]" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-5xl font-bold text-[#9b5de5]">200+</div>
+        <p class="mt-2 text-[#333]">Widows Supported</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="relative bg-[#f5f5f5] py-20 overflow-hidden">
+  <!-- Blob Background -->
+  <div class="absolute bottom-0 right-0 -z-10 opacity-20">
+    <svg viewBox="0 0 200 200" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#00b4d8" d="M47.2,-72.4C61.7,-64.4,72.6,-51.6,78.3,-37.3C84,-23,84.5,-7.2,82.7,9.5C80.9,26.1,76.8,43.5,66.4,56.9C55.9,70.4,39.2,80,21.1,86.7C3,93.3,-16.6,97.1,-31.4,90.5C-46.1,83.9,-56,66.9,-61.4,51.2C-66.9,35.4,-67.9,21,-71.2,4.7C-74.4,-11.6,-80,-29.8,-75.2,-43.6C-70.3,-57.4,-54.8,-67,-39.4,-73.4C-24,-79.8,-12,-83.1,2.6,-87.1C17.2,-91.1,34.3,-95.5,47.2,-72.4Z" transform="translate(100 100)" />
+    </svg>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-[#3E3E3E]" data-aos="fade-up">What People Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#00b4d8] transition duration-300 hover:shadow-[0_0_20px_#00b4d8]" data-aos="fade-right">
+        <p class="mb-4 text-[#333] italic">"Sahayta has given my daughter a chance to study. Forever grateful!"</p>
+        <div class="font-bold text-[#00b4d8]">— A Beneficiary</div>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#6a994e] transition duration-300 hover:shadow-[0_0_20px_#6a994e]" data-aos="fade-left">
+        <p class="mb-4 text-[#333] italic">"Their medical aid saved my child's life. Thank you Sahayta!"</p>
+        <div class="font-bold text-[#6a994e]">— A Grateful Parent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CALL TO ACTION -->
+<section class="relative bg-[#14213d] text-white py-20 overflow-hidden">
+  <!-- Decorative Blob -->
+  <div class="absolute top-[-80px] left-[-80px] opacity-20 blur-sm -z-10">
+    <svg width="400" height="400" viewBox="0 0 200 200">
+      <path fill="#fca311" d="M42.8,-67.6C57.6,-59.4,72.7,-48.3,74.6,-34.8C76.5,-21.3,65.3,-5.4,59.6,10.3C53.8,26.1,53.5,41.6,45.2,52.6C36.8,63.6,20.4,70.2,4.7,65.4C-10.9,60.6,-21.7,44.3,-32.7,32.3C-43.6,20.3,-54.7,12.6,-62.5,0.7C-70.4,-11.2,-75,-26.2,-67.9,-36.9C-60.9,-47.5,-42.1,-53.7,-26.3,-61.5C-10.4,-69.2,2.5,-78.6,17.7,-78.6C32.9,-78.5,49.2,-69.4,42.8,-67.6Z" transform="translate(100 100)" />
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-3xl mx-auto text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight drop-shadow-md" data-aos="fade-up">
+      Be the <span class="text-[#fca311]">Change</span><br />That Sparks a Future
+    </h2>
+    <p class="text-lg md:text-xl mb-8 text-[#e5e5e5]" data-aos="fade-up" data-aos-delay="100">
+      Join hands with SAHAYTA to uplift lives. Every step you take makes someone’s life better.
+    </p>
+
+    <!-- Animated Fill-In/Out Button -->
+    <a href="donation.html"
+       class="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold rounded-full shadow-lg transition-all duration-300 border-2 border-[#fca311] text-[#fca311] hover:text-[#14213d]"
+       data-aos="fade-up" data-aos-delay="200">
+      
+      <!-- Icon -->
+      <i class="fas fa-hand-holding-heart mr-2 text-lg z-10"></i>
+
+      <span class="z-10">Donate Now</span>
+
+      <!-- Fill Animation Layer -->
+      <span class="absolute inset-0 w-full h-full bg-[#fca311] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left rounded-full"></span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER (Reusable) -->
+<footer class="bg-[#D7D7D7] pt-10 text-gray-800">
+  <div class="w-full max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left justify-items-center">
+
+    <!-- Column 1: Logo + About -->
+    <div class="space-y-4">
+      <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto md:mx-0">
+        <img src="logo1.jpg" alt="Sahayta Logo" class="w-full h-full object-cover">
+      </div>
+      <p class="text-sm max-w-xs leading-relaxed">
+        <span class="text-lg font-bold text-[#0B3564]">SAHAYTA</span> is a charitable trust dedicated to empowering lives through education, healthcare & community service.
+      </p>
+    </div>
+
+    <!-- Column 2: Contact Us -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold text-slate-900 font-[Segoe UI]">Contact Us</h4>
+      <ul class="space-y-2 text-sm text-slate-700">
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#FF7043]"></i>50 Abubaker Beg Mohd Street, Kolsa Mohalla,<br><center>Mumbai 400 003</center></li>
+        <li><i class="fas fa-phone mr-2 text-[#FF7043]"></i>+91 99300 51150</li>
+        <li><i class="fas fa-envelope mr-2 text-[#FF7043]"></i>Sahaytacharitabletrust@gmail.com</li>
+      </ul>
+      <!-- Contact Button -->
+      <a href="contact.html" class="inline-block mt-3 px-6 py-2 bg-[#0B3564] text-white text-sm rounded-full shadow-md hover:bg-[#FF7043] transition duration-300">
+        <i class="fas fa-paper-plane mr-1"></i> Get in Touch
+      </a>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div class="space-y-4">
+      <h4 class="text-xl font-semibold text-[#FF7043]">🌐 Follow Us</h4>
+      <div class="flex gap-4 justify-center md:justify-start">
+        <a href="https://www.instagram.com/sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#E1306C] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-instagram text-white text-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19pmp8DJW7/" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-facebook-f text-white text-lg"></i>
+        </a>
+        <a href="https://youtube.com/@sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-youtube text-white text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bg-[#0B3564] text-white text-center py-4 mt-10 text-sm">
+    © 2025 <span class="font-semibold text-[#FF7043]">SAHAYTA Charitable Trust</span>. All rights reserved.
+  </div>
+</footer>
+
+<!-- Required Font Awesome (Add in your <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- AOS LIBRARY + SCRIPT -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+</body>
+</html>

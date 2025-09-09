@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - SAHAYTA CHARITY TRUST</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      background-color: #FCFAEE;
+    }
+
+    /* Donate Button Fill-In Effect */
+    .fill-btn {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color 0.4s ease;
+    }
+    .fill-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease-out;
+      z-index: -1;
+    }
+    .fill-btn:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .fill-btn:hover {
+      color: #B8001F;
+    }
+
+    /* Blue Glow Border */
+    .glow-border {
+    border: 4px solid #254D70;
+    box-shadow: 0 0 10px #254D70;
+    transition: all 0.4s ease;
+  }
+  .glow-border:hover {
+    box-shadow: 0 0 15px #254D70, 0 0 30px #254D70;
+    transform: scale(1.05) translateY(-4px);
+  }
+     .glow-border-red {
+    box-shadow: 0 0 10px rgba(184, 0, 31, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  .glow-border-red:hover {
+    box-shadow: 0 0 15px #B8001F, 0 0 30px #B8001F;
+    transform: scale(1.05) translateY(-4px);
+  }
+  </style>
+</head>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-content">
+    <!-- Heart SVG -->
+    <svg id="heart-svg" viewBox="0 0 100 100" class="heart-svg">
+      <path class="heart-outline" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="none"
+            stroke="#fca311"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path class="heart-fill" 
+            d="M50 30
+               C35 0, 0 25, 50 80
+               C100 25, 65 0, 50 30 Z"
+            fill="#fca311"
+            opacity="0"/>
+    </svg>
+
+    <!-- Loading Text -->
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<style>
+  /* Preloader container */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #FCFAEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 0.5s ease;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Heart SVG responsive */
+  .heart-svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .heart-svg {
+      width: 80px;
+      height: 80px;
+    }
+    .loading-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Outline animation */
+  .heart-outline {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawHeart 2s ease forwards;
+  }
+
+  /* Fill animation after outline */
+  .heart-fill {
+    animation: fillHeart 0.8s ease forwards;
+    animation-delay: 2s;
+  }
+
+  /* Heart pulse */
+  #heart-svg {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 2.8s;
+  }
+
+  /* Loading text */
+  .loading-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #fca311;
+    animation: typing 2s steps(10) infinite alternate;
+  }
+
+  /* Keyframes */
+  @keyframes drawHeart { to { stroke-dashoffset: 0; } }
+  @keyframes fillHeart { to { opacity: 1; } }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  @keyframes typing { from { opacity: 0.2; } to { opacity: 1; } }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.style.display = "none", 500);
+  });
+</script>
+
+<body class="text-[#212121] font-sans">
+<!-- HEADER -->
+<header class="sticky top-0 z-50 shadow-md backdrop-blur bg-gradient-to-r from-[#fefcfb] to-[#fffaf0]">
+  <div class="w-full px-4 py-2 flex items-center justify-between">
+
+    <!-- Left: Logo + Brand -->
+    <div class="flex items-center gap-2">
+      <img src="logo1.jpg" alt="Sahayta Logo" class="h-14 w-auto rounded-xl" />
+      <span class="text-3xl font-bold text-[#0b3564] tracking-wide font-[cursive]">SAHAYTA</span>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-[#0b3564] focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav + Donate Button -->
+    <div class="hidden md:flex items-center gap-5">
+      <nav class="flex space-x-4 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+        <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+        <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+        <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+        <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+        <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+      </nav>
+
+      <!-- DONATE Button -->
+      <a href="donation.html"
+         class="relative inline-flex items-center justify-center px-5 py-1.5 font-bold text-[#0b3564] border-2 border-[#0b3564] rounded-full overflow-hidden group bg-white">
+        <span class="absolute inset-0 z-0 bg-gradient-to-r from-[#0b3564] via-[#FF7043] to-[#FF7043] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-80"></span>
+        <span class="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364 4.318 12.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+          DONATE
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+    <nav class="flex flex-col space-y-3 font-[Georgia] font-semibold text-[#0b3564] text-[14px]">
+      <a href="index.html" class="hover:text-[#FF7043] transition duration-300">Home</a>
+      <a href="about.html" class="hover:text-[#FF7043] transition duration-300">About</a>
+      <a href="what.html" class="hover:text-[#FF7043] transition duration-300">What We Do</a>
+      <a href="contact.html" class="hover:text-[#FF7043] transition duration-300">Contact</a>
+       <a href="donation.html" class="hover:text-[#FF7043] transition duration-300">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+<!-- HERO SECTION: ABOUT PAGE -->
+<section class="relative w-full py-32 bg-[#fafafa] text-center text-[#14213d]">
+  <div class="max-w-4xl mx-auto px-4">
+    <!-- Main Heading -->
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-wide">About Us</h1>
+
+    <!-- Animated Subheading -->
+    <h2 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-wider glow-orange animate-letters-highlight" id="animatedText">
+      SAHAYTA  TRUST
+    </h2>
+  </div>
+</section>
+
+<!-- STYLE -->
+<style>
+  @keyframes letterFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(15px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-letters-highlight span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterFadeIn 0.5s ease forwards;
+    font-weight: 800;
+    color: #fca311;
+    text-shadow: 0 0 6px rgba(252, 163, 17, 0.5);
+  }
+
+  .glow-orange {
+    text-shadow: 0 0 8px rgba(252, 163, 17, 0.5), 0 0 12px rgba(252, 163, 17, 0.3);
+  }
+  @keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-in-out both;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 15px 4px rgba(255, 112, 67, 0.7);
+}
+  .glow-border-orange {
+    box-shadow: 0 0 15px rgba(252, 163, 17, 0.4), 0 0 5px rgba(252, 163, 17, 0.2);
+  }
+</style>
+
+
+
+<!-- ABOUT SECTION -->
+<section class="py-16 px-4 md:px-20 bg-[#e5e5e5] text-[#666666]" id="about">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    
+    <!-- Images Animate from Left -->
+    <div class="relative flex justify-center items-center gap-3 md:gap-6 flex-wrap" data-aos="fade-left">
+      <!-- Image 1 -->
+      <div class="w-52 md:w-60 transform rounded-lg glow-border overflow-hidden transition duration-500" data-aos="fade-left" data-aos-delay="100">
+        <img src="1.jpg" alt="Image 1" class="w-full h-auto object-cover" />
+      </div>
+      <!-- Image 2 -->
+      <div class="w-60 md:w-72 transform rounded-lg glow-border overflow-hidden transition duration-500" data-aos="fade-left" data-aos-delay="300">
+        <img src="2.jpg" alt="Image 2" class="w-full h-auto object-cover" />
+      </div>
+      <!-- Image 3 -->
+      <div class="w-52 md:w-60 transform rounded-lg glow-border overflow-hidden transition duration-500" data-aos="fade-left" data-aos-delay="500">
+        <img src="3.jpg" alt="Image 3" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+
+    <!-- Text Animate from Right -->
+<div data-aos="fade-right">
+  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#14213d] text-center">
+    Welcome to <span class="text-[#fca311]">SAHAYTA</span> Charity Trust
+  </h2>
+
+  <p class="text-base md:text-lg leading-relaxed text-center">
+    <strong>Sahayta Charitable Trust</strong>, we believe that <em>kindness has the power to transform lives</em>. 
+    We are more than just a non-profit — we are a family of dreamers, doers, and changemakers, united by a single mission: 
+    <strong>to bring hope where it’s needed the most</strong>.
+  </p>
+
+  <p class="mt-4 text-base md:text-lg leading-relaxed text-center">
+    Our work is focused on empowering <strong>vulnerable and marginalised communities</strong> by ensuring access to 
+    <strong>healthcare</strong>, <strong>quality education</strong>, and <strong>freedom from poverty</strong>. 
+    We stand beside those who have been left unheard, helping them rise with dignity and strength.
+  </p>
+
+  <p class="mt-4 text-base md:text-lg leading-relaxed text-center">
+    Every project we undertake is fuelled by <em>empathy</em>, <em>integrity</em>, and an 
+    <strong>unshakable commitment to social impact</strong>. With the support of our passionate team, generous donors, 
+    and well-wishers, we strive to create a future where every individual can live with <em>opportunity</em>, 
+    <em>equality</em>, and <em>hope</em>.
+  </p>
+
+  <p class="mt-4 text-base md:text-lg leading-relaxed text-center">
+    Together, we are not just changing lives — <strong>we are building a better tomorrow</strong>.
+  </p>
+
+  <!-- Centered Button with Glow Effect -->
+  <div class="mt-6 text-center">
+    <a href="donation.html"
+       class="inline-flex items-center gap-2 bg-[#fca311] text-white font-semibold px-6 py-3 rounded-full shadow-md border-2 border-[#fca311] hover:bg-white hover:text-[#fca311] hover:border-[#fca311] transition hover:shadow-lg hover:shadow-[#fca311]/70">
+      <i class="fas fa-hands-helping"></i>
+      Support Us
+    </a>
+  </div>
+</div>
+
+
+</section>
+
+<!-- Managing Trustees Section -->
+<section class="bg-[#0B3D68] py-16">
+  <div class="container mx-auto px-4">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <div class="flex justify-center items-center space-x-4">
+        <!-- Logo in a circle -->
+        <div class="w-14 h-14 flex items-center justify-center rounded-full ring-4 ring-white/30 shadow-lg overflow-hidden">
+          <img src="logo1.jpg" alt="Logo" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Title -->
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-400 via-teal-300 to-green-400 bg-clip-text text-transparent tracking-wider uppercase">
+          Managing Trustees
+        </h2>
+      </div>
+      <p class="mt-4 text-gray-200 text-sm sm:text-base">
+        Dedicated leaders guiding <span class="font-semibold">Sahayata</span> with vision and integrity
+      </p>
+    </div>
+
+    <!-- Trustees Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="100">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="Ahmedmaklai.jpg" alt="Mr. Ahmad Maklai Ishaque" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Ahmad Maklai Ishaque
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="200">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="mansurmehta.jpg" alt="Mr. Mansur Mehta" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Mansur Mehta
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="300">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="person.jpg" alt="Mr. Safdar Merchant" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Safdar Merchant
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="400">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="person.jpg" alt="Mr. Naushad Patka" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Naushad Patka
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="500">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="person.jpg" alt="Mr. Shoaib Chunawala" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Shoaib Chunawala
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="600">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="sobanchunawala.jpg" alt="Mr. Soban Chunawala" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Soban Chunawala
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="700">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="rizwanpatel.jpg" alt="Mr. Rizwan Patel" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Rizwan Patel
+          </h3>
+        </div>
+      </div>
+
+      <!-- Trustee Card -->
+      <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="800">
+        <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+          <img src="mazinpatel.jpg" alt="Mr. Mazin Patel" class="max-h-64 w-auto object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+            Mr. Mazin Patel
+          </h3>
+        </div>
+      </div>
+
+      <!-- Last row wrapper -->
+      <div class="col-span-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+
+        <div class="hidden lg:block"></div>
+
+        <!-- Trustee Card -->
+        <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+             data-aos="fade-right" data-aos-delay="900">
+          <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+            <img src="person.jpg" alt="Mr. Ahmed Chunawala" class="max-h-64 w-auto object-contain">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+              Mr. Ahmed Chunawala
+            </h3>
+          </div>
+        </div>
+
+        <!-- Trustee Card -->
+        <div class="group bg-white rounded-2xl border shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+             data-aos="fade-left" data-aos-delay="1000">
+          <div class="h-64 flex items-center justify-center bg-gray-100 transition-all duration-300 group-hover:ring-4 group-hover:ring-[#0B3D68]">
+            <img src="person.jpg" alt="Mr. Khubaib Zamzam" class="max-h-64 w-auto object-contain">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0B3D68]">
+              Mr. Khubaib Zamzam
+            </h3>
+          </div>
+        </div>
+
+        <div class="hidden lg:block"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+
+
+<!-- OUR CORE SECTION -->
+<section class="py-16 px-4 md:px-20 bg-[#0b3564] text-white" id="our-core">
+  <div class="max-w-7xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#b7d5f7]">Our Core</h2>
+    <p class="mb-10 text-[#ECEFF1]">
+      Our core values drive our mission to uplift society with integrity and compassion.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="bg-[#263238] p-6 rounded-lg shadow-md border border-transparent hover:border-[#FF7043] hover:shadow-lg hover:shadow-[#FF7043]/50 transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-4xl text-[#FF7043] mb-4">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h4 class="text-xl font-semibold mb-2 text-[#b7d5f7]">Compassion</h4>
+        <p class="text-[#ECEFF1]">We work with empathy to reach those who need it most.</p>
+      </div>
+      <div class="bg-[#263238] p-6 rounded-lg shadow-md border border-transparent hover:border-[#FF7043] hover:shadow-lg hover:shadow-[#FF7043]/50 transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-4xl text-[#FF7043] mb-4">
+          <i class="fas fa-hands"></i>
+        </div>
+        <h4 class="text-xl font-semibold mb-2 text-[#b7d5f7]">Integrity</h4>
+        <p class="text-[#ECEFF1]">Honesty and transparency are at the heart of our work.</p>
+      </div>
+      <div class="bg-[#263238] p-6 rounded-lg shadow-md border border-transparent hover:border-[#FF7043] hover:shadow-lg hover:shadow-[#FF7043]/50 transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+        <div class="text-4xl text-[#FF7043] mb-4">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h4 class="text-xl font-semibold mb-2 text-[#b7d5f7]">Impact</h4>
+        <p class="text-[#ECEFF1]">We strive for meaningful, long-lasting change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR JOURNEY SECTION -->
+<section class="relative py-20 px-6 bg-[#fafafa] text-[#666666]" id="our-journey">
+  <div class="relative max-w-5xl mx-auto z-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-[#14213d]" data-aos="fade-up">
+      Our Journey
+    </h2>
+    <p class="mb-12 text-center max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      From a humble act of compassion to a movement of change — <strong>SAHAYTA</strong> has been 
+      <em>transforming lives</em> for over three decades.
+    </p>
+
+    <!-- Timeline -->
+    <div class="relative border-l-4 border-[#fca311] ml-16"> <!-- more margin for bigger gap -->
+
+      <!-- Step 1 -->
+      <div class="mb-16 pl-10 relative" data-aos="fade-up">
+        <div class="absolute -left-[75px] top-1 w-14 h-14 bg-[#fca311] rounded-full flex items-center justify-center text-white font-bold shadow-lg text-lg">
+          1
+        </div>
+        <h4 class="text-xl font-semibold mb-3 text-[#fca311]">1993 — The Beginning</h4>
+        <p class="text-[#333333] leading-relaxed">
+          Born out of compassion during the aftermath of communal tensions in Mumbai, 
+          <strong>SAHAYTA</strong> was created to support families who had lost everything.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="mb-16 pl-10 relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute -left-[75px] top-1 w-14 h-14 bg-[#14213d] rounded-full flex items-center justify-center text-white font-bold shadow-lg text-lg">
+          2
+        </div>
+        <h4 class="text-xl font-semibold mb-3 text-[#14213d]">2000s — Growing Through Giving</h4>
+        <p class="text-[#333333] leading-relaxed">
+          With the kindness of donors, our initiatives expanded — providing education, healthcare, 
+          and relief to thousands of underprivileged individuals.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="pl-10 relative" data-aos="fade-up" data-aos-delay="400">
+        <div class="absolute -left-[75px] top-1 w-14 h-14 bg-[#29447e] rounded-full flex items-center justify-center text-white font-bold shadow-lg text-lg">
+          3
+        </div>
+        <h4 class="text-xl font-semibold mb-3 text-[#29447e]">Today — A Beacon of Hope</h4>
+        <p class="text-[#333333] leading-relaxed">
+          Supporting <strong>600+ students annually</strong>, empowering women, and delivering 
+          vital healthcare — we continue to uplift lives with dignity and compassion.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY TRUST SAHAYTA SECTION -->
+<section class="bg-[#0b3564] py-16 text-white text-center relative overflow-hidden px-6">
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Floating Icons -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+      <div class="flex flex-col items-center">
+        <div class="text-4xl bg-[#FF7043] p-4 rounded-full shadow-lg animate-bounce">
+          🫶
+        </div>
+        <p class="mt-3 font-semibold text-lg text-[#b7d5f7]">Support</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-4xl bg-[#FBBF24] p-4 rounded-full shadow-lg animate-bounce delay-200">
+          🔥
+        </div>
+        <p class="mt-3 font-semibold text-lg text-[#FBBF24]">Impact</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-4xl bg-[#b7d5f7] p-4 rounded-full shadow-lg animate-bounce delay-400">
+          🌍
+        </div>
+        <p class="mt-3 font-semibold text-lg text-[#b7d5f7]">Reach</p>
+      </div>
+    </div>
+
+    <!-- Animated Text -->
+    <h2 class="text-2xl md:text-3xl font-bold leading-snug tracking-wide animate-fade-in-down">
+      People trust SAHAYTA for its transparency,<br class="hidden md:inline" />
+      powerful impact, and relentless commitment to uplift lives.
+    </h2>
+
+    <!-- Call-to-Action Button -->
+    <a href="what.html"
+       class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full text-lg font-semibold transition-all duration-300 
+              bg-transparent border-2 border-[#FF7043] text-[#FF7043] hover:bg-[#FF7043] hover:text-white 
+              glow-button shadow-md tracking-wide">
+      <i class="fas fa-eye"></i> Know What We Do
+    </a>
+
+  </div>
+</section>
+
+
+<!-- FOOTER (Reusable) -->
+<footer class="bg-[#D7D7D7] pt-10 text-gray-800">
+  <div class="w-full max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left justify-items-center">
+
+    <!-- Column 1: Logo + About -->
+    <div class="space-y-4">
+      <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto md:mx-0">
+        <img src="logo1.jpg" alt="Sahayta Logo" class="w-full h-full object-cover">
+      </div>
+      <p class="text-sm max-w-xs leading-relaxed">
+        <span class="text-lg font-bold text-[#0B3564]">SAHAYTA</span> is a charitable trust dedicated to empowering lives through education, healthcare & community service.
+      </p>
+    </div>
+
+    <!-- Column 2: Contact Us -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold text-slate-900 font-[Segoe UI]">Contact Us</h4>
+      <ul class="space-y-2 text-sm text-slate-700">
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#FF7043]"></i>50 Abubaker Beg Mohd Street, Kolsa Mohalla,<br><center>Mumbai 400 003</center></li>
+        <li><i class="fas fa-phone mr-2 text-[#FF7043]"></i>+91 99300 51150</li>
+        <li><i class="fas fa-envelope mr-2 text-[#FF7043]"></i>Sahaytacharitabletrust@gmail.com</li>
+      </ul>
+      <!-- Contact Button -->
+      <a href="contact.html" class="inline-block mt-3 px-6 py-2 bg-[#0B3564] text-white text-sm rounded-full shadow-md hover:bg-[#FF7043] transition duration-300">
+        <i class="fas fa-paper-plane mr-1"></i> Get in Touch
+      </a>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div class="space-y-4">
+      <h4 class="text-xl font-semibold text-[#FF7043]">🌐 Follow Us</h4>
+      <div class="flex gap-4 justify-center md:justify-start">
+        <a href="https://www.instagram.com/sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#E1306C] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-instagram text-white text-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19pmp8DJW7/" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-facebook-f text-white text-lg"></i>
+        </a>
+        <a href="https://youtube.com/@sahaytacharitabletrust" target="_blank"
+           class="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-300">
+          <i class="fab fa-youtube text-white text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bg-[#0B3564] text-white text-center py-4 mt-10 text-sm">
+    © 2025 <span class="font-semibold text-[#FF7043]">SAHAYTA Charitable Trust</span>. All rights reserved.
+  </div>
+</footer>
+
+<!-- Required Font Awesome (Add in your <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+<script>
+  AOS.init({ duration: 1000 });
+</script>
+
+</body>
+</html> 
+
+<!-- AOS INIT -->
+<script>
+  AOS.init({ duration: 1000, once: true });
+   document.addEventListener("DOMContentLoaded", () => {
+    const target = document.getElementById("animatedText");
+    const text = target.textContent.trim();
+    target.innerHTML = "";
+
+    [...text].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      if (char === " ") {
+        span.innerHTML = "&nbsp;&nbsp;";
+      }
+      span.style.animationDelay = `${i * 0.1}s`;
+      target.appendChild(span);
+    });
+  });
+</script>
+</body>
+</html>
