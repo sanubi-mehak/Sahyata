@@ -195,115 +195,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <body class="text-black font-sans">
   <!-- PRELOADER -->
-<div id="preloader">
-  <div class="preloader-content">
-    <svg id="heart-svg" viewBox="0 0 100 100" width="120" height="120">
-      <path class="heart-outline" 
-            d="M50 30
-               C35 0, 0 25, 50 80
-               C100 25, 65 0, 50 30 Z"
-            fill="none"
-            stroke="#fca311"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"/>
-      <path class="heart-fill" 
-            d="M50 30
-               C35 0, 0 25, 50 80
-               C100 25, 65 0, 50 30 Z"
-            fill="#fca311"
-            opacity="0"/>
-    </svg>
-    <p class="loading-text">Loading...</p>
-  </div>
-</div>
-
+<h2 class="animate">Loading</h2>
 <style>
-  /* Preloader container */
-  #preloader {
-    position: fixed;
-    inset: 0;
-    background: #FCFAEE; /* Light cream background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999999;
-  }
+@keyframes load {
+    0%{
+        opacity: 0.08;
+/*         font-size: 10px; */
+/* 				font-weight: 400; */
+				filter: blur(5px);
+				letter-spacing: 3px;
+        }
+    100%{
+/*         opacity: 1; */
+/*         font-size: 12px; */
+/* 				font-weight:600; */
+/* 				filter: blur(0); */
+        }
+}
 
-  .preloader-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  /* Outline animation */
-  .heart-outline {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-    animation: drawHeart 2s ease forwards;
-  }
-
-  /* Fill animation after outline */
-  .heart-fill {
-    animation: fillHeart 0.8s ease forwards;
-    animation-delay: 2s;
-  }
-
-  /* Pulsing after fill */
-  #heart-svg {
-    animation: pulse 1.5s ease-in-out infinite;
-    animation-delay: 2.8s;
-  }
-
-  /* Loading text */
-  .loading-text {
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fca311;
-    animation: typing 2s steps(10) infinite alternate;
-  }
-
-  /* Keyframes */
-  @keyframes drawHeart {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes fillHeart {
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-
-  /* Typewriter effect */
-  @keyframes typing {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
-  }
+.animate {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	margin: auto;
+/* 	width: 350px; */
+/* 	font-size:26px; */
+	font-family: Helvetica, sans-serif, Arial;
+	animation: load 1.2s infinite 0s ease-in-out;
+	animation-direction: alternate;
+	text-shadow: 0 0 1px white;
+}
+body, html{
+	height: 96vh;
+	background-color: #111;
+	color: white;
+}
 </style>
-
-<script>
-  // Remove preloader after page load
-  window.addEventListener("load", function () {
-    const preloader = document.getElementById("preloader");
-    preloader.style.opacity = "0";
-    setTimeout(() => {
-      preloader.style.display = "none";
-    }, 500);
-  });
-</script><!-- HEADER -->
+<!-- HEADER -->
 <header class="sticky top-0 z-50 shadow-md backdrop-blur bg-gradient-to-r from-[#fefcfb] to-[#fffaf0]">
   <div class="w-full px-4 py-2 flex items-center justify-between">
 
